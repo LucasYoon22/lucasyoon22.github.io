@@ -6,52 +6,64 @@
   <title>LucasYoon · Statistics &amp; Mathematics</title>
   <meta name="description" content="LucasYoon's personal homepage. Statistics and mathematics at the University of Toronto, selected research and software projects.">
   <style>
+    :root { color-scheme: dark; }
     * { box-sizing: border-box; }
-    body { margin: 0; color: #22282e; background: white; font: 16px/1.65 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    nav, main, footer { width: min(960px, 90%); margin: auto; }
-    nav { padding: 19px 0; border-bottom: 1px solid #e4e7eb; font-size: 14px; }
-    main { display: grid; grid-template-columns: 220px 1fr; gap: 64px; padding: 55px 0; }
-    aside { text-align: center; }
-    aside img { width: 128px; height: 128px; border-radius: 50%; background: #f4f5f7; }
-    h1, h2, h3 { line-height: 1.28; letter-spacing: -.035em; }
-    h1 { margin: 16px 0 5px; font-size: 30px; }
-    aside p { margin: 0 0 12px; font-size: 15px; color: #535c66; }
-    a { color: #285984; text-underline-offset: 4px; }
-    a:hover { text-decoration: underline; }
-    nav a, h3 a { text-decoration: none; }
-    h2 { margin: 0 0 16px; padding-bottom: 9px; border-bottom: 1px solid #e4e7eb; font-size: 23px; }
-    section + section { margin-top: 34px; }
-    h3 { margin: 0 0 5px; font-size: 17px; }
+    body { margin: 0; background: #0d0d10; color: #c7c7ce; font: 16px/1.7 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main, footer { width: min(1220px, calc(100% - 48px)); margin: auto; }
+    main { position: relative; padding-top: 20px; }
+    header, section > p, .entry, article { background: #19191c; border: 1px solid #323237; border-radius: 15px; box-shadow: inset 0 1px 0 #ffffff0a; }
+    header { text-align: center; padding: 36px 18px; }
+    header img { display: block; width: 140px; height: 140px; margin: auto; border-radius: 50%; border: 2px solid #38383e; background: #252529; }
+    h1, h2, h3 { color: #f4f4f6; letter-spacing: -.035em; line-height: 1.2; }
+    h1 { margin: 16px 0 6px; font-size: clamp(32px, 4vw, 40px); }
     p { margin: 0; }
-    article + article { margin-top: 22px; }
-    article p { color: #535c66; font-size: 15px; }
-    footer { padding: 18px 0; border-top: 1px solid #e4e7eb; color: #606870; font-size: 13px; }
-    @media(max-width: 700px) {
-      main { grid-template-columns: 1fr; gap: 32px; padding: 32px 0; }
-      aside img { width: 104px; height: 104px; }
+    header a, summary { display: inline-block; color: #f0f0f2; border-radius: 30px; background: #27272b; border: 1px solid #404046; padding: 6px 17px; font-size: 14px; }
+    header a { margin-top: 17px; }
+    nav { position: absolute; top: 28px; left: 8px; }
+    summary { cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: ' ⌄'; }
+    .menu { display: grid; margin-top: 5px; padding: 7px; border-radius: 12px; background: #252529; border: 1px solid #414147; }
+    .menu a { padding: 4px 10px; }
+    section { margin-top: 38px; scroll-margin-top: 20px; }
+    h2 { margin: 0 0 17px; font-size: clamp(28px, 3.4vw, 38px); }
+    h3 { margin: 0 0 5px; font-size: 19px; }
+    section > p, .entry, article { padding: 17px 21px; }
+    article + article { margin-top: 10px; }
+    a { color: #abc3ff; text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+    :focus-visible { outline: 2px solid #abc3ff; outline-offset: 3px; }
+    footer { padding: 32px 0; color: #a6a6af; font-size: 13px; }
+    @media (max-width: 600px) {
+      main, footer { width: calc(100% - 28px); }
+      header { padding: 48px 12px 27px; }
+      header img { width: 110px; height: 110px; }
+      section { margin-top: 28px; }
     }
   </style>
 </head>
 <body>
-  <nav aria-label="Main"><a href="./">Home</a></nav>
   <main>
-    <aside>
+    <nav aria-label="Sections"><details><summary>Home</summary><div class="menu">
+      <a href="#research">Research</a><a href="#education">Education</a><a href="#projects">Selected Projects</a>
+    </div></details></nav>
+    <header>
       <img src="https://github.com/LucasYoon22.png?size=256" alt="LucasYoon's GitHub avatar" width="128" height="128">
       <h1>LucasYoon</h1>
       <p>Statistics &amp; Mathematics<br>University of Toronto</p>
       <a href="https://github.com/LucasYoon22">GitHub</a>
-    </aside>
+    </header>
     <div>
-      <section>
+      <section id="research">
         <h2>Research</h2>
         <p>I study statistics and mathematics at the University of Toronto. My diabetes risk project asks how much lifestyle factors add to a prediction once clinical measurements are taken into account.</p>
       </section>
-      <section>
+      <section id="education">
         <h2>Education</h2>
-        <h3>University of Toronto</h3>
-        <p>Statistics &amp; Mathematics</p>
+        <div class="entry"><h3>University of Toronto</h3>
+          <p>Statistics &amp; Mathematics</p></div>
       </section>
-      <section>
+      <section id="projects">
         <h2>Selected Projects</h2>
         <article>
           <h3><a href="https://github.com/LucasYoon22/diabetes-risk-prediction">Predicting Diabetes Risk Scores</a></h3>
