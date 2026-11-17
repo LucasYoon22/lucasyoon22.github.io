@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LucasYoon | Statistics, Mathematics &amp; Machine Learning</title>
+<meta content="LucasYoon's personal portfolio. Statistics and Mathematics at the University of Toronto. Research in machine learning, statistical modeling, and quantitative finance." name="description"/>
+<style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0d10;
+      --card: #19191c;
+      --card-hover: #202024;
+      --border: #323237;
+      --text: #c7c7ce;
+      --muted: #9999a5;
+      --heading: #f4f4f6;
+      --accent: #abc3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.75 Inter, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main, footer {
+      width: min(1100px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    main {
+      padding-top: 24px;
+    }
+
+    h1, h2, h3 {
+      color: var(--heading);
+      letter-spacing: -0.035em;
+      line-height: 1.3;
+    }
+
+    h1 {
+      margin: 18px 0 6px;
+      font-size: clamp(32px, 4vw, 42px);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(26px, 3vw, 34px);
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      margin-top: 12px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #d4e0ff;
+      text-decoration: underline;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    /* Navigation */
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    nav details {
+      position: relative;
+    }
+
+    nav summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 8px 18px;
+      background: #27272b;
+      border: 1px solid #404046;
+      border-radius: 30px;
+      color: var(--heading);
+      font-size: 14px;
+    }
+
+    nav summary::-webkit-details-marker {
+      display: none;
+    }
+
+    nav summary::after {
+      content: " ⌄";
+    }
+
+    .menu {
+      position: absolute;
+      right: 0;
+      top: 42px;
+      z-index: 10;
+      display: grid;
+      gap: 4px;
+      min-width: 190px;
+      padding: 10px;
+      background: #252529;
+      border: 1px solid #414147;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px #0005;
+    }
+
+    .menu a {
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      background: #35353a;
+      text-decoration: none;
+    }
+
+    /* Profile Header */
+
+    header {
+      text-align: center;
+      padding: 42px 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .avatar {
+      display: block;
+      width: 145px;
+      height: 145px;
+      margin: auto;
+      border-radius: 50%;
+      border: 3px solid #38383e;
+      background: #252529;
+      object-fit: cover;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .interests {
+      max-width: 650px;
+      margin: 16px auto 0;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      padding: 7px 20px;
+      color: var(--heading);
+      background: #27272b;
+      border: 1px solid #404046;
+      border-radius: 30px;
+      font-size: 14px;
+    }
+
+    .social-links a:hover {
+      background: #36363e;
+      text-decoration: none;
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 48px;
+      scroll-margin-top: 24px;
+    }
+
+    .card {
+      padding: 23px 26px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: inset 0 1px 0 #ffffff0a;
+    }
+
+    .card + .card {
+      margin-top: 12px;
+    }
+
+    .card:hover {
+      border-color: #45454d;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 4px 11px;
+      border: 1px solid #393941;
+      border-radius: 7px;
+      background: #242429;
+      color: #babac5;
+      font-size: 12px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .skill-group + .skill-group {
+      margin-top: 20px;
+    }
+
+    .skill-group h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 45px 0 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      main, footer {
+        width: calc(100% - 28px);
+      }
+
+      header {
+        padding: 34px 16px;
+      }
+
+      .avatar {
+        width: 115px;
+        height: 115px;
+      }
+
+      section {
+        margin-top: 34px;
+      }
+
+      .card {
+        padding: 19px 18px;
+      }
+
+      .interests {
+        font-size: 13px;
+      }
+    }
+  
+/* Additional résumé-driven portfolio sections */
+.highlights { margin: 14px 0 0; padding-left: 20px; }
+.highlights li { margin: 8px 0; }
+.subhead { margin-top: 22px; margin-bottom: 14px; font-size: 17px; }
+.grade-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+.grade { display: flex; gap: 12px; align-items: center; padding: 14px; background: #242429; border: 1px solid #393941; border-radius: 11px; }
+.grade strong { font-size: 29px; color: #abc3ff; line-height: 1; }
+.grade span { line-height: 1.35; font-size: 13px; }
+.grade small { color: #9999a5; }
+.footnote { color: #9999a5; font-size: 12px; margin-top: 13px; }
+@media (max-width: 850px) { .grade-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 420px) { .grade-grid { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:22px; }
+.contact-item { padding:17px 19px; background:#242429; border:1px solid #393941; border-radius:10px; overflow-wrap:anywhere; }
+.contact-label { display:block; color:var(--muted); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.contact-item a { color:var(--accent); font-size:15px; }
+</style>
+</head>
+<body>
+<main>
+<!-- Navigation -->
+<nav aria-label="Sections">
+<details>
+<summary>Home</summary>
+<div class="menu"><a href="#about">About</a><a href="#research">Research</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#leadership">Leadership</a><a href="#skills">Technical Skills</a><a href="#others">Others</a><a href="#contact">Contact</a></div>
+</details>
+</nav>
+<!-- Profile -->
+<header>
+<img alt="LucasYoon profile photo" class="avatar" height="145" src="images/profile.jpg" width="145"/>
+<h1>LucasYoon</h1>
+<p>
+        Statistics &amp; Mathematics(Co-op)
+        <br/>
+        University of Toronto
+      </p>
+<p class="subtitle">3rd-Year Undergraduate Student · Co-op</p>
+<p class="interests">
+        Machine Learning · Artificial Intelligence ·
+        Statistical Modeling · Quantitative Finance
+      </p>
+<div class="social-links"><a href="resume.pdf" rel="noopener noreferrer" target="_blank">View Resume ↗</a>
+<a href="https://github.com/LucasYoon22" rel="noopener noreferrer" target="_blank">
+          GitHub
+        </a>
+<a href="mailto:junseo.yoon@mail.utoronto.ca">Email</a></div>
+</header>
+<!-- About -->
+<section id="about"><h2>About Me</h2><div class="card">
+<p>I'm a third-year Honours Bachelor of Science student in Statistics and Mathematics (Co-op) at the University of Toronto, interested in machine learning research, statistical modeling, mathematical optimization, and quantitative finance.</p>
+<p>My work spans foundation models for high-dimensional regression, performance profiling and data engineering, statistical process control, and financial research tools. I enjoy turning mathematical ideas into reliable software and testing methods against real-world data.</p>
+<p>I'm especially interested in opportunities where statistical reasoning, scalable computation, and software engineering come together.</p>
+</div></section>
+<!-- Research -->
+<section id="research"><h2>Research</h2>
+<div class="card"><p>My research interests center on high-dimensional statistical learning, foundation models, in-context learning, and the connection between mathematical structure and computational efficiency. I study how learning systems behave under sparsity, correlation, and changing data distributions.</p></div>
+<article class="card"><span class="eyebrow">Undergraduate Research · Yonsei University</span>
+<h3>KALBI — Krylov Adaptive Linear Basis In-context Learning for High-Dimensional Linear Regression</h3>
+<p class="meta">Machine Learning Lab · Jun–Aug 2026 · Advisor: Prof. Minseok Shin</p>
+<p>Co-authored research on a Transformer-free foundation model for high-dimensional sparse regression (up to 200,000 features) with CPU inference. Work focused on synthetic pretraining pipelines, robust regression benchmarks, and understanding model behavior across sparse and dense tasks.</p>
+<ul class="highlights"><li>Profiled synthetic data generation and traced 43 of 44 seconds in one structural causal model generator to feature screening; identified fallback noise in 71% of its features.</li>
+<li>Introduced per-generator configuration overrides, reducing data generation time from 228 to 130 seconds (1.75× faster), with identical outputs verified across 20 tasks.</li>
+<li>Added a parallel Bayesian neural network branch to broaden the synthetic pretraining mixture and identified a potential further 22× speedup in tree-based generators.</li>
+<li>Benchmarked against cross-validated LASSO, SCAD, and MCP on 41 real datasets; investigated a correlation-filter bottleneck that reduced effective feature dimensionality.</li></ul>
+<div class="tags"><span class="tag">PyTorch</span><span class="tag">High-Dimensional Regression</span><span class="tag">In-Context Learning</span><span class="tag">Performance Profiling</span><span class="tag">Synthetic Data</span><span class="tag">LASSO / SCAD / MCP</span></div>
+<p class="footnote">Research manuscript in preparation, as described in the provided résumé.</p>
+</article></section>
+<!-- Education -->
+<section id="education"><h2>Education</h2>
+<div class="card"><h3>University of Toronto</h3><p class="meta">Honours Bachelor of Science · Statistics &amp; Mathematics · Co-op<br/>Expected graduation: April 2028</p>
+<p>Academic focus: mathematical statistics, regression analysis, machine learning, optimization, graph theory, and applied probability.</p>
+<h3 class="subhead">Selected Academic Results</h3>
+<div class="grade-grid"><div class="grade"><strong>98</strong><span>Introduction to Analysis<br/><small>MATB43</small></span></div><div class="grade"><strong>93</strong><span>Regression Analysis<br/><small>STAC67</small></span></div><div class="grade"><strong>92</strong><span>Introduction to Statistics<br/><small>STAB57</small></span></div><div class="grade"><strong>91</strong><span>Differential Equations I<br/><small>MATB44</small></span></div></div>
+<p class="footnote">Selected final course marks from the University of Toronto academic history.</p>
+<div class="tags"><span class="tag">Statistics</span><span class="tag">Mathematical Analysis</span><span class="tag">Regression</span><span class="tag">Optimization</span><span class="tag">Graph Theory</span><span class="tag">Machine Learning</span></div></div></section><section id="experience"><h2>Experience</h2>
+<article class="card"><span class="eyebrow">Semiconductor Manufacturing · Data Analytics</span><h3>Data Analyst Intern — CDQ Semitech</h3><p class="meta">South Korea · Jul–Sep 2025</p><p>Built a SQL/Python pipeline to replace manual weight-based compound measurements and validated more than 10,000 semiconductor inspection records.</p><ul class="highlights"><li>Analyzed recurring defect patterns using pandas and NumPy.</li><li>Applied statistical process control, control charts, and outlier detection to distinguish actual process shifts from data-quality issues.</li><li>Improved daily defect detection by approximately 2%.</li></ul><div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Statistical Process Control</span></div></article>
+</section>
+<!-- Selected Projects -->
+<section id="projects"><h2>Selected Projects</h2>
+<article class="card"><span class="eyebrow">Quantitative Finance · Data Engineering</span><h3>Fund Research Data Terminal — Midas Capital</h3><p class="meta">Sep 2026–Present · Python, yfinance</p><p>Building a research-data backend for a student-led fund managing a $100K long-only portfolio of U.S. and Korean equities. The tool retrieves market and financial-statement information from ticker inputs and generates requested equity-research metrics such as EBITDA.</p><div class="tags"><span class="tag">Python</span><span class="tag">yfinance</span><span class="tag">Equity Research</span><span class="tag">Financial Statements</span></div></article>
+<article class="card"><span class="eyebrow">Personal Project · Quantitative Finance</span><h3>Quantitative Finance &amp; Portfolio Analytics Terminal</h3><p>An interactive Streamlit application for market analysis, cross-asset correlation, moving-average strategy backtesting, and portfolio optimization. Includes transaction-cost modeling and strategy-versus-buy-and-hold comparisons.</p><div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Backtesting</span><span class="tag">Portfolio Optimization</span></div></article>
+<article class="card"><span class="eyebrow">1st Place · STAC67 Course Project</span><h3><a href="https://github.com/LucasYoon22/diabetes-risk-prediction" rel="noopener noreferrer" target="_blank">Diabetes Risk Prediction &amp; Regression Diagnostics</a></h3><p>Developed and evaluated regression models on more than 100,000 records, improving adjusted R² from 0.44 to approximately 0.90 through feature engineering and cross-validated LASSO. Performed residual checks and multicollinearity diagnostics using generalized variance inflation factors (GVIF).</p><div class="tags"><span class="tag">R</span><span class="tag">glmnet</span><span class="tag">LASSO</span><span class="tag">Cross-Validation</span><span class="tag">Regression Diagnostics</span></div><a class="project-link" href="https://github.com/LucasYoon22/diabetes-risk-prediction" rel="noopener noreferrer" target="_blank">View on GitHub →</a></article>
+<article class="card"><span class="eyebrow">Software Engineering · Automation</span><h3><a href="https://github.com/LucasYoon22/IEEE_Converter" rel="noopener noreferrer" target="_blank">IEEE Reference Converter</a></h3><p>A utility that converts website links into IEEE-style references to simplify academic citation workflows.</p><div class="tags"><span class="tag">Automation</span><span class="tag">Developer Tools</span></div><a class="project-link" href="https://github.com/LucasYoon22/IEEE_Converter" rel="noopener noreferrer" target="_blank">View on GitHub →</a></article>
+</section><section id="leadership"><h2>Leadership &amp; Involvement</h2>
+<article class="card"><span class="eyebrow">Research Communication · Web Development</span><h3>Co-Director, Research-Tech — AKCSE</h3><p class="meta">Association of Korean-Canadian Scientists and Engineers · Mar 2026–Present</p><p>Lead technical content initiatives covering AI, data science, and applied mathematics for an audience of over 10,000 students. Developed the Research &amp; Literature section of the <a href="https://akcseuoft.ca" rel="noopener noreferrer" target="_blank">AKCSE U of T website</a> with Next.js, including the article upload workflow used by the department.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">JavaScript</span><span class="tag">Technical Writing</span><span class="tag">Leadership</span></div></article>
+</section>
+<!-- Technical Skills -->
+<section id="skills"><h2>Technical Skills</h2><div class="card">
+<div class="skill-group"><h3>Languages &amp; Libraries</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">JavaScript</span><span class="tag">Bash</span><span class="tag">PyTorch</span><span class="tag">NumPy</span><span class="tag">pandas</span><span class="tag">SciPy</span><span class="tag">scikit-learn</span></div></div>
+<div class="skill-group"><h3>Machine Learning &amp; Statistics</h3><div class="tags"><span class="tag">Foundation Models</span><span class="tag">In-Context Learning</span><span class="tag">Transformers</span><span class="tag">Gradient Boosting</span><span class="tag">High-Dimensional Regression</span><span class="tag">LASSO / Ridge / SCAD / MCP</span><span class="tag">Cross-Validation</span><span class="tag">SPC</span></div></div>
+<div class="skill-group"><h3>Engineering &amp; Performance</h3><div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">Linux GPU Servers</span><span class="tag">CUDA via PyTorch</span><span class="tag">Profiling</span><span class="tag">Benchmarking</span><span class="tag">Next.js</span><span class="tag">Streamlit</span></div></div>
+<div class="skill-group"><h3>Mathematics &amp; Finance</h3><div class="tags"><span class="tag">Mathematical Analysis</span><span class="tag">Linear Algebra</span><span class="tag">Optimization</span><span class="tag">Graph Theory</span><span class="tag">Quantitative Research</span><span class="tag">Portfolio Analytics</span></div></div></div></section>
+<!-- Others -->
+<section id="others">
+<h2>Others</h2>
+<div class="card">
+<h3>Baseball</h3>
+<p class="meta">
+          Catcher | 9 Years of Amateur Baseball
+        </p>
+<p>
+          Gwangmyeong Little League → Yeongnam Middle School → Kyunggi High School
+        </p>
+<p>
+          Played catcher through nine years of amateur baseball, earning one MVP award
+          and an athletic scholarship in high school.
+        </p>
+</div>
+<div class="card">
+<h3>Military Service — Republic of Korea Army</h3>
+<p class="meta">
+          Jan 2024 – Jul 2025 |
+          Drill Instructor, Korea Army Training Center · Squad Leader, 21st Infantry Division
+        </p>
+<p>
+          Awards: Division Commander's Commendation (×3) · Best Drill Instructor
+        </p>
+<div class="photo-grid">
+<img alt="Team award, Combat Fitness team event, ROK Army HQ festival, H1 2025" loading="lazy" src="images/military-award.jpg"/>
+<img alt="Group photo at a training graduation ceremony" loading="lazy" src="images/military-graduation.jpg"/>
+</div>
+<div class="tags">
+<span class="tag">Teamwork</span>
+<span class="tag">Leadership</span>
+<span class="tag">First Aid</span>
+</div>
+</div>
+</section>
+<section id="contact"><h2>Contact Information</h2><div class="card"><p>I'm open to connecting about machine learning research, software engineering, quantitative finance, and collaborative projects.</p><div class="contact-grid"><div class="contact-item"><span class="contact-label">Email</span><a href="mailto:junseo.yoon@mail.utoronto.ca">junseo.yoon@mail.utoronto.ca</a></div><div class="contact-item"><span class="contact-label">Phone</span><a href="tel:+16475001935">+1 (647) 500-1935</a></div><div class="contact-item"><span class="contact-label">GitHub</span><a href="https://github.com/LucasYoon22" rel="noopener noreferrer" target="_blank">github.com/LucasYoon22</a></div><div class="contact-item"><span class="contact-label">Resume</span><a href="resume.pdf" rel="noopener noreferrer" target="_blank">View My Resume ↗</a></div></div></div></section></main>
+<!-- Footer -->
+<footer>
+    © <span id="year"></span> LucasYoon.
+    Built with HTML &amp; CSS.
+  </footer>
+<script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
