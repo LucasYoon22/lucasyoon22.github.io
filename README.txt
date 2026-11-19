@@ -1,0 +1,1 @@
+Upload index.html, resume.pdf and the entire images/ folder to your GitHub Pages repository root. Replace Quant Terminal placeholder later by uploading images/quant-terminal.jpg and replacing the image-placeholder block in index.html with <img class="project-image" src="images/quant-terminal.jpg" alt="Quant Terminal screenshot">.

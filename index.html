@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#f8f7f3" name="theme-color"/>
+<meta content="Lucas Yoon — Statistics &amp; Mathematics Co-op student at the University of Toronto. Machine learning research, data engineering, and quantitative finance." name="description"/>
+<title>
+   Lucas Yoon | ML Research &amp; Software
+  </title>
+<style>
+/* Editorial typography: bold geometric sans-serif paired with a refined serif */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+   :root { --paper:#f8f7f3; --white:#fff; --ink:#171717; --soft:#53534f; --line:#e6e4dd; --muted:#777770; --accent:#222; }
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
+body {margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+a {color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid #666;outline-offset:3px}
+.wrap {width:min(1200px,calc(100% - 64px));margin:auto}
+.nav-shell{position:sticky;top:0;z-index:50;background:rgba(248,247,243,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(15px)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:23px;font-weight:850;letter-spacing:-.06em}.logo span{font-weight:450}
+.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{font-size:13px;font-weight:600;color:#3c3c38}.navlinks a:hover{text-decoration:underline;text-underline-offset:5px}.navlinks .nav-resume{border:1px solid #292929;border-radius:999px;padding:9px 15px;color:#161616}
+.hamburger{display:none;background:none;border:0;color:#111;font-size:28px;cursor:pointer}
+.hero{display:block;padding:106px 0 80px;min-height:auto}
+.eyebrow,.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#67645c}
+.hero h1{font-size:clamp(76px,10.3vw,160px);line-height:.97;letter-spacing:-.09em;margin:22px 0 29px;font-weight:650}
+.hero h1 span{display:inline}.gradient,.logo span{background:none;color:inherit;-webkit-text-fill-color:currentColor}
+.hero-role{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(28px,4.5vw,60px);letter-spacing:-.038em;line-height:1.16;max-width:1050px;margin:0 0 28px}
+.hero-desc{color:#62615d;font-size:18px;line-height:1.65;max-width:760px;margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:31px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid #272725;padding:12px 20px;font-weight:700;font-size:13px;transition:background .2s,color .2s}.btn:hover{transform:translateY(-2px)}.primary{background:#1d1d1c;color:#fff}.secondary{background:transparent;color:#242424}.secondary:hover{background:#eeece6}
+.scroll-note{color:#89877f;margin-top:29px;font-size:12px}
+.hero-art{display:none}
+.hero-visual{margin-top:64px;height:clamp(280px,34vw,460px);overflow:hidden;border-radius:8px;background:#d9e2e3;position:relative}
+.hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center 57%;display:block;filter:saturate(.75)}
+.hero-visual figcaption{position:absolute;bottom:18px;left:20px;font-size:12px;color:white;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:3px}
+.section{padding:75px 0 28px}.section-title{font-size:clamp(36px,5.2vw,65px);line-height:1.12;letter-spacing:-.06em;margin:13px 0 15px;font-weight:650}.section-lead{max-width:800px;color:#69665f;margin:0 0 30px;font-size:16px}
+.panel,.metric{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:28px}.panel p{color:#55544e;margin:0 0 14px}.panel p:last-child{margin-bottom:0}.panel h3{letter-spacing:-.02em;color:#1c1c1a}
+.about-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:16px}.about-highlights{display:grid;gap:12px}.metric strong{font-size:30px;line-height:1.25;display:block;font-weight:700}.metric small{color:#77736c}
+.chips,.project-tools{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.chip,.tool{border:1px solid #e5e3dc;background:#f7f6f2;border-radius:999px;font-size:11px;padding:6px 11px;color:#54524c}
+.timeline{border-left:1px solid #c9c6bc;margin-left:10px;padding-left:29px;display:grid;gap:17px}.timeline-item{position:relative}.timeline-item:before{content:"";position:absolute;top:28px;left:-36px;background:#393934;border:3px solid var(--paper);height:13px;width:13px;border-radius:50%}
+.timeline h3,.project h3{margin:5px 0 4px;font-size:22px;line-height:1.35}.date,.project .kind{color:#68665e;font-size:11px;letter-spacing:.08em;font-weight:800;text-transform:uppercase}.org{color:#77746e;font-size:13px;font-weight:600;margin-bottom:14px}.timeline p,.project p{font-size:14px;line-height:1.85}
+.project-filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}.filter{cursor:pointer;border:1px solid #d8d5cd;background:transparent;color:#353532;border-radius:999px;font-size:12px;padding:8px 15px}.filter[aria-pressed=true]{background:#1d1d1c;color:white;border-color:#1d1d1c}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.project{padding:0 0 24px;display:flex;flex-direction:column;overflow:hidden}.project > :not(.project-image){margin-left:25px;margin-right:25px}.project-image{height:238px;width:100%;object-fit:cover;display:block;margin-bottom:25px;filter:saturate(.80)}.project .project-tools{margin-top:17px}.project .project-links{margin-top:auto;padding-top:18px}.project-links a{font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px}.project[hidden]{display:none!important}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grade-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.grade{padding:14px;background:#f6f5f1;border:1px solid var(--line);border-radius:6px}.grade strong{font-size:20px}.grade small{display:block;color:#6d6a62;line-height:1.4}.skill-block + .skill-block{margin-top:20px}.skill-block h3{font-size:16px;margin:0 0 7px}
+.contact-panel{display:grid;grid-template-columns:1fr 1fr;gap:25px}.contact-details{display:grid;gap:10px}.contact-details a{background:#f8f7f3;border:1px solid var(--line);border-radius:7px;padding:14px 16px;overflow-wrap:anywhere;font-size:14px}.contact-details a span{display:block;text-transform:uppercase;font-size:10px;letter-spacing:.12em;color:#77736c}.contact-details a:hover{border-color:#6a6863}
+.footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:40px 0;margin-top:70px;color:#77746c;font-size:13px}
+.reveal{opacity:1!important;transform:none!important}
+@media(max-width:850px){.navlinks{gap:11px}.navlinks a{font-size:12px}.hero{padding-top:75px}.about-grid,.edu-grid,.contact-panel{grid-template-columns:1fr}.about-highlights{grid-template-columns:repeat(3,1fr)}.project-image{height:190px}}
+@media(max-width:650px){.wrap{width:calc(100% - 34px)}.hamburger{display:block}.nav{min-height:66px}.navlinks{display:none;position:absolute;top:66px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:18px 22px 23px;flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks a{padding:8px;font-size:15px}.hero{padding:64px 0 40px}.hero h1{font-size:clamp(60px,16vw,95px)}.hero-role{font-size:clamp(28px,8vw,45px)}.hero-desc{font-size:15px}.hero-visual{margin-top:42px;height:255px}.section{padding-top:58px}.panel{padding:22px}.project-grid{grid-template-columns:1fr}.project{padding:0 0 23px}.project-image{height:220px}.about-highlights{grid-template-columns:1fr}.grade-grid{grid-template-columns:1fr 1fr}.footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  
+
+/* EDITORIAL PROJECT CARDS — image slots are intentionally empty */
+.project > .image-placeholder {margin:0!important;width:100%!important;flex-shrink:0}
+.project-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;align-items:stretch}
+.project {padding:0;display:flex;flex-direction:column;background:#f1f0ea;border:1px solid #e9e6de;border-radius:17px;overflow:hidden;min-height:550px}
+.project > :not(.project-image):not(.image-placeholder) {margin-left:24px;margin-right:24px}
+.image-placeholder {height:215px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:#e8e6df;border-bottom:1px solid #dedbd2;color:#78766f;text-align:center;position:relative;overflow:hidden}
+.image-placeholder:after {content:'';position:absolute;inset:16px;border:1px dashed #c9c6bb;border-radius:8px;pointer-events:none}
+.image-placeholder .image-icon {font-family:Georgia,serif;font-size:43px;line-height:1;color:#aaa69c}
+.image-placeholder .image-caption {font-size:12px;font-weight:600;letter-spacing:.05em}
+.image-placeholder .image-filename {font-size:10px;color:#918d83}
+.project .kind {margin-top:22px;font-size:11px;color:#69655e}
+.project h3 {font-size:21px;line-height:1.25;letter-spacing:-.04em;margin-top:9px;margin-bottom:10px}
+.project .org {font-size:12px;line-height:1.55;margin-bottom:12px}
+.project .project-summary {font-size:13px;line-height:1.7;color:#52504b;margin-bottom:14px}
+.project .project-bullets {margin-top:0;margin-bottom:17px;padding-left:18px;font-size:12.5px;line-height:1.65;color:#35332f}
+.project .project-bullets li+li {margin-top:7px}
+.project .project-tools {margin-top:auto!important;padding-top:8px}
+.project .project-links {margin-top:15px!important;padding-top:13px;padding-bottom:23px;border-top:1px solid #dedbd3}
+.project .project-links:empty {display:none}
+.project .project-links a {font-size:12px}
+.hero-visual {height:clamp(250px,31vw,380px);background:#e5e4df;border:1px solid #ddd9d0;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-visual .hero-art-type {font-family:Georgia,'Times New Roman',serif;color:#4c4a44;text-align:center;font-size:clamp(45px,7vw,104px);font-style:italic;letter-spacing:-.06em;line-height:1}
+.hero-visual .hero-art-type small {display:block;font-family:Inter,Arial,sans-serif;font-size:12px;letter-spacing:.20em;font-style:normal;margin-top:25px;text-transform:uppercase;color:#858078}
+@media(max-width:1050px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.project-grid{grid-template-columns:1fr}.project{min-height:auto}.image-placeholder{height:220px}.project> :not(.image-placeholder){margin-left:22px;margin-right:22px}}
+
+/* Updated editorial imagery */
+.research-feature-image{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:14px;margin-bottom:25px;border:1px solid #e3ded3}
+.project .project-image{margin-bottom:0;height:215px;object-fit:cover;filter:none}
+.akcse-logo-art{height:215px;width:100%;margin:0!important;display:flex;align-items:center;justify-content:center;position:relative;background:#e9e8e1;border-bottom:1px solid #dedbd2;overflow:hidden}
+.akcse-logo-art img{max-width:82%;max-height:78%;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply;position:relative;z-index:2}
+.logo-backup{font-size:clamp(28px,3vw,42px);font-weight:750;letter-spacing:.08em;color:#23585b;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1}
+@media(max-width:650px){.research-feature-image{aspect-ratio:4/3}.project .project-image,.akcse-logo-art{height:225px}}
+
+/* Embedded AKCSE software and future project imagery */
+.akcse-subproject{border-top:1px solid #d8d5cd;margin:22px 24px 0;padding:19px 0 4px;color:#34322f}
+.akcse-subproject .subproject-overline{font-size:10px;font-weight:750;letter-spacing:.12em;color:#77736d}
+.akcse-subproject h4{font-size:19px;letter-spacing:-.025em;margin:8px 0}
+.akcse-subproject p,.akcse-subproject li{font-size:12.5px;line-height:1.7}
+.akcse-subproject ul{padding-left:18px;margin:10px 0 14px}
+.akcse-subproject a{font-size:12.5px;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.image-placeholder{height:215px;width:100%;background:#e6e3da;border-bottom:1px solid #d8d4ca;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:22px!important;margin:0!important;overflow:hidden}
+.image-placeholder .image-number{color:#777269;letter-spacing:.11em;font-weight:700;font-size:10px}
+.image-placeholder .image-placeholder-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,3vw,43px);line-height:1.1;color:#22211e;letter-spacing:-.045em}
+.image-placeholder .image-placeholder-title em{font-weight:400}
+.image-placeholder small{font-size:9.5px;letter-spacing:.07em;color:#89847d}
+@media(max-width:650px){.image-placeholder{height:225px}.akcse-subproject{margin-left:22px;margin-right:22px}}
+
+/* Anthropic-inspired editorial font treatment — added Nov 2026 */
+:root { --font-sans: 'DM Sans', Arial, Helvetica, sans-serif; --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif; }
+body { font-family:var(--font-sans); font-size:16px; line-height:1.7; }
+.logo, .hero h1, .section-title, .panel h3, .project h3, .navlinks a, .btn {font-family:var(--font-sans);}
+.logo {font-weight:800;letter-spacing:-.055em}
+.hero {padding-top:90px;}
+.hero h1 {font-size:clamp(72px,9.8vw,142px);font-weight:800;letter-spacing:-.083em;line-height:.95;}
+.hero-role {font-family:var(--font-sans);font-size:clamp(31px,4.4vw,64px);font-weight:400;letter-spacing:-.055em;line-height:1.13;max-width:1100px;margin-bottom:24px;}
+.hero-role strong {font-weight:800;display:block;letter-spacing:-.065em;}
+.hero-role-serif {display:block;font-family:var(--font-serif);font-size:1.08em;font-weight:400;letter-spacing:-.025em;line-height:1.06;margin-top:9px;}
+.hero-visual .hero-art-type {font-family:var(--font-serif);font-weight:400;letter-spacing:-.025em;}
+.hero-visual .hero-art-type small {font-family:var(--font-sans);}
+.section-title {font-weight:800;letter-spacing:-.065em;}
+.project h3 {font-weight:800;letter-spacing:-.045em;}
+.image-placeholder .image-placeholder-title {font-family:var(--font-serif);font-weight:400;letter-spacing:-.025em;}
+@media(max-width:650px){.hero h1{font-size:clamp(60px,15vw,90px)}.hero-role{font-size:clamp(28px,7vw,44px)}.hero-role-serif{margin-top:12px;}}
+
+</style>
+<style>
+/* Uploaded project visuals — local files served by GitHub Pages */
+.akcse-logo-art{background:#082850;}
+.akcse-logo-art img{mix-blend-mode:normal;max-height:85%;max-width:85%;}
+.akcse-logo-art .logo-backup{display:none;}
+.project .project-image{object-position:center;}
+</style></head>
+<body>
+<div class="nav-shell">
+<nav aria-label="Main navigation" class="nav wrap">
+<a class="logo" href="#home">
+     Lucas
+     <span>
+      Yoon.
+     </span>
+</a>
+<button aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" class="hamburger" id="menuToggle">
+     ☰
+    </button>
+<div class="navlinks" id="navLinks">
+<a href="#home">
+      Home
+     </a>
+<a href="#about">
+      About
+     </a>
+<a href="#experience">
+      Experience
+     </a>
+<a href="#research">
+      Research
+     </a>
+<a href="#projects">
+      Projects
+     </a>
+<a href="#education">
+      Education
+     </a>
+<a href="#contact">
+      Contact
+     </a>
+<a class="nav-resume" href="resume.pdf" rel="noopener noreferrer" target="_blank">
+      View Resume ↗
+     </a>
+</div>
+</nav>
+</div>
+<main>
+<section class="hero wrap" id="home">
+<div>
+<div class="eyebrow">
+      HELLO, I'M
+     </div>
+<h1>
+      Lucas
+      <span class="gradient">
+       Yoon.
+      </span>
+</h1>
+<p class="hero-role">
+<strong>Statistics &amp; Mathematics.</strong>
+<span class="hero-role-serif">Exploring machine learning, research, and the mathematics behind intelligent systems.</span>
+</p>
+<p class="hero-desc">
+      I explore the intersection of machine learning, mathematical foundations, and software engineering — from high-dimensional regression research to data-driven financial tools.
+     </p>
+<div class="actions">
+<a class="btn primary" href="#projects">
+       Explore Projects ↗
+      </a>
+<a class="btn secondary" href="resume.pdf" rel="noopener noreferrer" target="_blank">
+       View Resume ↗
+      </a>
+<a class="btn secondary" href="#contact">
+       Get in Touch
+      </a>
+</div>
+<div class="scroll-note">
+      ↓ Scroll to explore my work
+     </div>
+</div>
+<figure class="hero-visual"><div class="hero-art-type">Ideas into impact.<small>RESEARCH  /  MATHEMATICS  /  ENGINEERING</small></div></figure>
+</section>
+<section class="section wrap reveal" id="about">
+<div class="section-label">
+     01 / About
+    </div>
+<h2 class="section-title">
+     About
+     <span class="gradient">
+      Me
+     </span>
+</h2>
+<p class="section-lead">
+     A little about my journey and the problems I love solving.
+    </p>
+<div class="about-grid">
+<div class="panel">
+<p>
+       I'm a third-year
+       <strong>
+        Statistics (Co-op) &amp; Mathematics
+       </strong>
+       undergraduate at the
+       <strong>
+        University of Toronto
+       </strong>
+       , expected to graduate in April 2028.
+      </p>
+<p>
+       My work spans machine learning research, statistical modeling, manufacturing analytics, and quantitative finance. At Yonsei University's Machine Learning Lab, I contributed to a foundation model for high-dimensional regression and optimized synthetic data generation.
+      </p>
+<p>
+       I enjoy turning mathematical ideas into systems that work in practice — from profiling model pipelines to building tools for financial research.
+      </p>
+<div class="chips">
+<span class="chip">
+        Machine Learning
+       </span>
+<span class="chip">
+        High-Dimensional Statistics
+       </span>
+<span class="chip">
+        Data Engineering
+       </span>
+<span class="chip">
+        Quantitative Finance
+       </span>
+</div>
+</div>
+<div class="about-highlights">
+<div class="metric">
+<strong>
+        200K
+       </strong>
+<small>
+        Features in KALBI regression research
+       </small>
+</div>
+<div class="metric">
+<strong>
+        1.75×
+       </strong>
+<small>
+        Faster synthetic data generation
+       </small>
+</div>
+<div class="metric">
+<strong>
+        10K+
+       </strong>
+<small>
+        Semiconductor inspection records analyzed
+       </small>
+</div>
+</div>
+</div>
+</section>
+<section class="section wrap reveal" id="experience">
+<div class="section-label">
+     02 / Experience
+    </div>
+<h2 class="section-title">
+     My
+     <span class="gradient">
+      Journey
+     </span>
+</h2>
+<p class="section-lead">
+     Research, analytics, and engineering experiences that shaped my approach.
+    </p>
+<div class="timeline">
+<article class="timeline-item">
+<div class="panel">
+<span class="date">
+        JUN 2026 — AUG 2026 · SEOUL
+       </span>
+<h3>
+        Undergraduate Research Intern
+       </h3>
+<div class="org">
+        Yonsei University · Machine Learning Lab
+       </div>
+<p>
+        Co-authored KALBI, a Transformer-free foundation model for sparse regression with up to 200K features and CPU inference. Profiled synthetic pretraining generators, implemented configuration overrides yielding a 1.75× speedup, and benchmarked against LASSO, SCAD, and MCP across 41 real datasets.
+       </p>
+<div class="project-tools">
+<span class="tool">
+         PyTorch
+        </span>
+<span class="tool">
+         Profiling
+        </span>
+<span class="tool">
+         Sparse Regression
+        </span>
+<span class="tool">
+         Benchmarking
+        </span>
+</div>
+</div>
+</article>
+<article class="timeline-item">
+<div class="panel">
+<span class="date">
+        JUL 2025 — SEP 2025 · SOUTH KOREA
+       </span>
+<h3>
+        Data Analyst Intern
+       </h3>
+<div class="org">
+        CDQ Semitech
+       </div>
+<p>
+        Built a Python/SQL pipeline and analyzed 10,000+ semiconductor inspection records. Applied statistical process control and outlier detection to distinguish real process changes from data issues, helping identify about 2% more defects per day.
+       </p>
+<div class="project-tools">
+<span class="tool">
+         Python
+        </span>
+<span class="tool">
+         SQL
+        </span>
+<span class="tool">
+         Pandas
+        </span>
+<span class="tool">
+         Statistical Process Control
+        </span>
+</div>
+</div>
+</article>
+<article class="timeline-item">
+<div class="panel">
+<span class="date">
+        MAR 2026 — PRESENT · TORONTO
+       </span>
+<h3>
+        Vice President, Department of Research-Tech
+       </h3>
+<div class="org">
+        AKCSE · Association of Korean-Canadian Scientists and Engineers
+       </div>
+<p>
+        Oversee the Research-Tech Department’s monthly research publication program, including topic selection, editorial planning, content coordination, and publication of accessible technical articles on AI, machine learning, data science, and applied mathematics for AKCSE’s 10,000+ student community.
+       </p>
+<div class="project-tools">
+<span class="tool">
+         Research Leadership
+        </span>
+<span class="tool">
+         Monthly Publications
+        </span>
+<span class="tool">
+         Technical Writing
+        </span>
+<span class="tool">
+         Editorial Coordination
+        </span>
+</div>
+</div>
+</article>
+<article class="timeline-item">
+<div class="panel">
+<span class="date">
+        JAN 2024 — JUL 2025 · SOUTH KOREA
+       </span>
+<h3>
+        Squad Leader &amp; Drill Instructor
+       </h3>
+<div class="org">
+        Republic of Korea Army · Sergeant
+       </div>
+<p>
+        Led a 30-person squad and helped train more than 1,000 recruits with zero safety incidents. Received five commendations, including three Division Commander citations.
+       </p>
+<div class="project-tools">
+<span class="tool">
+         Leadership
+        </span>
+<span class="tool">
+         Training
+        </span>
+<span class="tool">
+         Teamwork
+        </span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<section class="section wrap reveal" id="research">
+<div class="section-label">
+     03 / Research
+    </div>
+<h2 class="section-title">
+     Curiosity meets
+     <span class="gradient">
+      mathematics.
+     </span>
+</h2>
+<p class="section-lead">
+     Building and evaluating efficient machine learning methods through statistical reasoning.
+    </p>
+<article class="panel"><img alt="Original illustrative rendering of Krylov subspaces, projected vectors, and high-dimensional optimization" class="research-feature-image" loading="lazy" src="images/krylov-algorithm.png"/>
+<span class="eyebrow">
+      FEATURED RESEARCH · YONSEI UNIVERSITY
+     </span>
+<h3 style="font-size:clamp(21px,3vw,29px);line-height:1.4;margin:12px 0">
+      KALBI — Krylov Adaptive Linear Basis In-context Learning for High-Dimensional Linear Regression Foundation Model
+     </h3>
+<p>
+      Worked on a Transformer-free approach to high-dimensional regression, including sparse and dense synthetic tasks. Identified costly feature-screening and unintended fallback-noise behavior, improved generator throughput, extended data generation with a parallel Bayesian neural network branch, and evaluated generalization on real datasets.
+     </p>
+<div class="chips">
+<span class="chip">
+       High-Dimensional Regression
+      </span>
+<span class="chip">
+       Foundation Models
+      </span>
+<span class="chip">
+       In-Context Learning
+      </span>
+<span class="chip">
+       PyTorch
+      </span>
+<span class="chip">
+       Synthetic Data
+      </span>
+</div>
+<p style="font-size:12px;color:#999999;margin-top:18px">
+      Manuscript in preparation · Advisor: Prof. Minseok Shin
+     </p>
+</article>
+</section>
+<section class="section wrap reveal" id="projects">
+<div class="section-label">
+     04 / Projects
+    </div>
+<h2 class="section-title">
+     Featured
+     <span class="gradient">
+      Projects
+     </span>
+</h2>
+<p class="section-lead">Selected research, computer vision, quantitative analytics, statistical modeling, and technical publishing.</p>
+<div aria-label="Filter projects" class="project-filters">
+<button aria-pressed="true" class="filter" data-filter="all">
+      All Projects
+     </button>
+<button aria-pressed="false" class="filter" data-filter="ml">Research &amp; AI</button>
+<button aria-pressed="false" class="filter" data-filter="finance">Quant Finance</button><button aria-pressed="false" class="filter" data-filter="software">
+      Software Engineering
+     </button>
+</div>
+<div class="project-grid"><article class="panel project" data-category="ml">
+<img alt="Illustration of Krylov subspace methods, matrix structure and optimization pathways" class="project-image" loading="lazy" src="images/krylov-algorithm.png"/>
+<span class="kind">Machine Learning / Research</span>
+<h3>KALBI — High-Dimensional Regression</h3>
+<p class="project-summary">Transformer-free foundation-model research exploring efficient in-context linear regression.</p>
+<ul class="project-bullets"><li>Studied sparse regression problems with up to 200,000 features and CPU-based inference.</li><li>Optimized synthetic data generation by 1.75× (228s to 130s).</li><li>Benchmarked LASSO, SCAD, and MCP across 41 real datasets.</li></ul>
+<div class="org">Yonsei University · Machine Learning Lab</div>
+<div class="project-tools"><span class="tool">PyTorch</span><span class="tool">Krylov Methods</span><span class="tool">Sparse Regression</span></div>
+<div class="project-links"><a href="#research">Read research overview ↗</a></div>
+</article><article class="panel project" data-category="ml software">
+<img alt="Mosaic of puppies and muffins used to illustrate the image classification task" class="project-image" loading="lazy" src="images/puppy-muffin.png"/>
+<span class="kind">Computer Vision / Machine Learning</span>
+<h3>Puppy vs. Muffin Image Classification</h3>
+<p class="project-summary">A CSCC11 machine learning assignment exploring visual representations for distinguishing puppies from muffins.</p>
+<ul class="project-bullets"><li>Investigated image feature representations, including HOG and CLIP embeddings.</li><li>Explored feature extraction, dimensionality reduction, and supervised classification on an image dataset.</li></ul>
+<div class="org">University of Toronto · CSCC11</div>
+<div class="project-tools"><span class="tool">Python</span><span class="tool">Computer Vision</span><span class="tool">HOG</span><span class="tool">CLIP</span></div>
+</article><article class="panel project" data-category="finance software">
+<div aria-label="Placeholder for quantitative finance terminal screenshot" class="image-placeholder"><div class="image-number">03 / QUANTITATIVE FINANCE</div><span class="image-placeholder-title">Market <em>Signals</em></span><small>ADD PROJECT IMAGE LATER · images/quant-terminal.jpg</small></div>
+<span class="kind">Quantitative Finance / Software Engineering</span>
+<h3>Quantitative Finance Terminal</h3>
+<p class="project-summary">An interactive Python and Streamlit dashboard for studying market behavior and trading strategies.</p>
+<ul class="project-bullets"><li>Visualizes stock performance, return correlations, and portfolio analytics.</li><li>Implements moving-average crossover backtesting with trading costs and buy-and-hold comparisons.</li></ul>
+<div class="org">Independent Project</div>
+<div class="project-tools"><span class="tool">Python</span><span class="tool">Streamlit</span><span class="tool">Pandas</span><span class="tool">Backtesting</span></div>
+</article><article class="panel project" data-category="ml">
+<img alt="Diabetes risk level gauge illustration" class="project-image" loading="lazy" src="images/diabetes-risk.png"/>
+<span class="kind">Statistics / Predictive Modeling</span>
+<h3>Diabetes Risk Prediction</h3>
+<p class="project-summary">STAC67 In-Class Project — 1st Place Overall.</p>
+<ul class="project-bullets"><li>Analyzed more than 100,000 records through feature engineering and cross-validated LASSO.</li><li>Improved adjusted R² from 0.44 to approximately 0.90; assessed residuals and multicollinearity (GVIF).</li></ul>
+<div class="org">University of Toronto · STAC67</div>
+<div class="project-tools"><span class="tool">R</span><span class="tool">glmnet</span><span class="tool">LASSO</span><span class="tool">Regression Diagnostics</span></div>
+<div class="project-links"><a href="https://github.com/LucasYoon22/diabetes-risk-prediction" rel="noopener noreferrer" target="_blank">View Code ↗</a></div>
+</article>
+<article class="panel project" data-category="ml"><div class="akcse-logo-art"><img alt="AKCSE University of Toronto logo supplied by the site owner" loading="lazy" src="images/akcse-logo.png"/><span class="logo-backup">AKCSE</span></div>
+<span class="kind">
+       Research Leadership / Technical Communication
+      </span>
+<h3>
+       AKCSE Monthly Research Publications
+      </h3><p class="project-summary">Research-Tech leadership and technical communication.</p><ul class="project-bullets"><li>Serve as VP, Department of Research-Tech.</li><li>Oversee planning, coordination, and publication of monthly research and technology posts.</li><li>Guide content covering AI, machine learning, data science, and applied mathematics.</li></ul>
+<div class="org">
+       AKCSE · VP, Department of Research-Tech
+      </div>
+<div class="project-tools">
+<span class="tool">
+        Research Leadership
+       </span>
+<span class="tool">
+        Editorial Planning
+       </span>
+<span class="tool">
+        Technical Writing
+       </span>
+<span class="tool">
+        Monthly Publications
+       </span>
+</div><div class="project-links">
+<a href="https://akcseuoft.ca" rel="noopener noreferrer" target="_blank">
+        AKCSE Website ↗
+       </a>
+</div>
+<div class="akcse-subproject">
+<div class="subproject-overline">AKCSE / RELATED SOFTWARE TOOL</div>
+<h4>IEEE Reference Converter</h4>
+<p>Converts website URLs into IEEE-style citations to make technical research writing and monthly publication preparation easier.</p>
+<ul><li>Automates reference formatting from website links.</li><li>Supports a more consistent technical writing workflow.</li></ul>
+<a href="https://github.com/LucasYoon22/IEEE_Converter" rel="noopener noreferrer" target="_blank">View IEEE Converter code ↗</a>
+</div></article>
+</div>
+<p class="image-note" style="font-size:11px;color:#87847c;margin:12px 0 0">KALBI artwork is a conceptual illustration, not a paper figure. Puppy/Muffin and Diabetes images were supplied for this portfolio; Quant Terminal image can be added later. IEEE Converter is included under AKCSE.</p>
+</section>
+<section class="section wrap reveal" id="education">
+<div class="section-label">
+     05 / Education &amp; Skills
+    </div>
+<h2 class="section-title">
+     Always
+     <span class="gradient">
+      learning.
+     </span>
+</h2>
+<div class="edu-grid">
+<div class="panel">
+<span class="eyebrow">
+       UNIVERSITY OF TORONTO
+      </span>
+<h3 style="font-size:23px;margin:10px 0">
+       Honours Bachelor of Science
+      </h3>
+<p>
+       Statistics (Co-op) &amp; Mathematics
+       <br/>
+       Expected Graduation · April 2028
+      </p>
+<h3 style="margin-top:22px;font-size:16px">
+       Selected Academic Results
+      </h3>
+<div class="grade-grid">
+<div class="grade">
+<strong>
+         98 · A+
+        </strong>
+<small>
+         Introduction to Analysis
+        </small>
+</div>
+<div class="grade">
+<strong>
+         93 · A+
+        </strong>
+<small>
+         Regression Analysis
+        </small>
+</div>
+<div class="grade">
+<strong>
+         92 · A+
+        </strong>
+<small>
+         Introduction to Statistics
+        </small>
+</div>
+<div class="grade">
+<strong>
+         91 · A+
+        </strong>
+<small>
+         Differential Equations I
+        </small>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="skill-block">
+<h3>
+        Languages &amp; Frameworks
+       </h3>
+<div class="chips">
+<span class="chip">
+         Python
+        </span>
+<span class="chip">
+         R
+        </span>
+<span class="chip">
+         SQL
+        </span>
+<span class="chip">
+         JavaScript
+        </span>
+<span class="chip">
+         Next.js
+        </span>
+<span class="chip">
+         Bash
+        </span>
+</div>
+</div>
+<div class="skill-block">
+<h3>
+        ML &amp; Data Science
+       </h3>
+<div class="chips">
+<span class="chip">
+         PyTorch
+        </span>
+<span class="chip">
+         NumPy
+        </span>
+<span class="chip">
+         Pandas
+        </span>
+<span class="chip">
+         SciPy
+        </span>
+<span class="chip">
+         scikit-learn
+        </span>
+<span class="chip">
+         Tabular Models
+        </span>
+</div>
+</div>
+<div class="skill-block">
+<h3>
+        Systems &amp; Statistics
+       </h3>
+<div class="chips">
+<span class="chip">
+         Docker
+        </span>
+<span class="chip">
+         Linux
+        </span>
+<span class="chip">
+         CUDA via PyTorch
+        </span>
+<span class="chip">
+         Profiling
+        </span>
+<span class="chip">
+         LASSO / SCAD / MCP
+        </span>
+<span class="chip">
+         Optimization
+        </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section wrap reveal" id="contact">
+<div class="section-label">
+     06 / Contact
+    </div>
+<h2 class="section-title">
+     Let's
+     <span class="gradient">
+      connect.
+     </span>
+</h2>
+<p class="section-lead">
+     Interested in research, engineering, finance, or collaborating on an interesting problem? I'd love to hear from you.
+    </p>
+<div class="panel contact-panel">
+<div>
+<h3 style="font-size:26px;margin:0 0 12px">
+       Get in touch
+      </h3>
+<p>
+       I am interested in opportunities to build, learn, and work with people who enjoy solving hard problems.
+      </p>
+<div class="actions">
+<a class="btn primary" href="resume.pdf" rel="noopener noreferrer" target="_blank">
+        View Resume ↗
+       </a>
+<a class="btn secondary" href="https://github.com/LucasYoon22" rel="noopener noreferrer" target="_blank">
+        GitHub ↗
+       </a>
+</div>
+</div>
+<div class="contact-details">
+<a href="mailto:junseo.yoon@mail.utoronto.ca">
+<span>
+        Email
+       </span>
+       junseo.yoon@mail.utoronto.ca
+      </a>
+<a href="tel:+16475001935">
+<span>
+        Phone
+       </span>
+       +1 (647) 500-1935
+      </a>
+<a href="https://github.com/LucasYoon22" rel="noopener noreferrer" target="_blank">
+<span>
+        GitHub
+       </span>
+       github.com/LucasYoon22
+      </a>
+</div>
+</div>
+</section>
+</main>
+<footer class="wrap footer">
+<span>
+    ©
+    <span id="year">
+</span>
+    Lucas Yoon. All rights reserved.
+   </span>
+<span>
+    Built with curiosity, code, and mathematics.
+   </span>
+</footer>
+<script>
+   document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close menu':'Open menu');toggle.textContent=open?'✕':'☰'});
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+    document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{const selected=button.dataset.filter;document.querySelectorAll('.filter').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelectorAll('.project').forEach(card=>{card.hidden=selected!=='all'&&!card.dataset.category.split(' ').includes(selected)})}));
+    // All sections remain visible, including when JavaScript or scroll observers fail.
+  </script>
+</body>
+</html>
