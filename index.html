@@ -7,18 +7,20 @@
   <meta name="theme-color" content="#f8f7f3">
 
   <title>Lucas Yoon | ML Research & Software</title>
-  <meta name="description" content="Lucas Yoon — Statistics and Mathematics Co-op student at the University of Toronto. Machine learning research, software development and quantitative finance.">
+
+  <meta name="description"
+        content="Lucas Yoon — Statistics and Mathematics at the University of Toronto. Machine learning, research, and software engineering.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
 
   <style>
     :root {
       --paper: #f8f7f3;
       --white: #ffffff;
       --ink: #171717;
-      --soft: #53534f;
       --muted: #777770;
       --line: #e6e4dd;
       --font-sans: "DM Sans", Arial, sans-serif;
@@ -64,7 +66,7 @@
       margin: auto;
     }
 
-    /* Navigation */
+    /* NAVIGATION */
 
     .nav-shell {
       position: sticky;
@@ -100,9 +102,9 @@
     }
 
     .navlinks a {
-      color: #3c3c38;
       font-size: 13px;
       font-weight: 600;
+      color: #3c3c38;
     }
 
     .navlinks a:hover {
@@ -124,7 +126,7 @@
       cursor: pointer;
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero {
       padding: 105px 0 80px;
@@ -132,11 +134,11 @@
 
     .eyebrow,
     .section-label {
-      color: #67645c;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: .14em;
       text-transform: uppercase;
+      color: #67645c;
     }
 
     .hero h1 {
@@ -164,7 +166,6 @@
       display: block;
       font-family: var(--font-serif);
       font-size: 1.08em;
-      font-weight: 400;
       letter-spacing: -.025em;
       line-height: 1.06;
       margin-top: 12px;
@@ -229,15 +230,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
     .hero-art-type {
       font-family: var(--font-serif);
-      color: #4c4a44;
-      text-align: center;
       font-size: clamp(45px, 7vw, 104px);
       font-style: italic;
+      text-align: center;
+      color: #4c4a44;
       letter-spacing: -.025em;
       line-height: 1;
     }
@@ -252,10 +252,10 @@
       color: #858078;
     }
 
-    /* Sections */
+    /* GENERAL SECTIONS */
 
     .section {
-      padding: 75px 0 28px;
+      padding: 80px 0 35px;
     }
 
     .section-title {
@@ -275,7 +275,7 @@
 
     .panel,
     .metric {
-      background: white;
+      background: var(--white);
       border: 1px solid var(--line);
       border-radius: 9px;
       padding: 28px;
@@ -295,7 +295,25 @@
       letter-spacing: -.03em;
     }
 
-    /* About */
+    .chips,
+    .project-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 17px;
+    }
+
+    .chip,
+    .tool {
+      border: 1px solid #e5e3dc;
+      background: #f7f6f2;
+      border-radius: 999px;
+      font-size: 11px;
+      padding: 6px 11px;
+      color: #54524c;
+    }
+
+    /* ABOUT */
 
     .about-grid {
       display: grid;
@@ -318,25 +336,7 @@
       color: #77736c;
     }
 
-    .chips,
-    .project-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 17px;
-    }
-
-    .chip,
-    .tool {
-      border: 1px solid #e5e3dc;
-      background: #f7f6f2;
-      border-radius: 999px;
-      font-size: 11px;
-      padding: 6px 11px;
-      color: #54524c;
-    }
-
-    /* Experience Timeline */
+    /* EXPERIENCE */
 
     .timeline {
       border-left: 1px solid #c9c6bc;
@@ -357,8 +357,8 @@
       left: -36px;
       background: #393934;
       border: 3px solid var(--paper);
-      height: 13px;
       width: 13px;
+      height: 13px;
       border-radius: 50%;
     }
 
@@ -389,7 +389,7 @@
       line-height: 1.85;
     }
 
-    /* Baekdu Ironman */
+    /* MILITARY ACHIEVEMENT */
 
     .military-achievement {
       margin: 22px 0;
@@ -418,10 +418,6 @@
       line-height: 1.75;
     }
 
-    .military-achievement li:last-child {
-      margin-bottom: 0;
-    }
-
     .military-stat {
       display: inline-block;
       font-size: 25px;
@@ -430,7 +426,28 @@
       margin-bottom: 12px;
     }
 
-    /* Research */
+    /* RESEARCH — SEPARATE SECTION */
+
+    #research {
+      margin-top: 105px;
+      padding-top: 90px;
+      border-top: 1px solid #d8d5cd;
+      clear: both;
+    }
+
+    #research .section-title {
+      margin-bottom: 18px;
+    }
+
+    .research-card {
+      display: block;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #dedbd3;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.025);
+    }
 
     .research-feature-image {
       display: block;
@@ -442,7 +459,13 @@
       border: 1px solid #e3ded3;
     }
 
-    /* Projects */
+    .research-card h3 {
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.4;
+      letter-spacing: -.035em;
+    }
+
+    /* PROJECT FILTERS */
 
     .project-filters {
       display: flex;
@@ -467,6 +490,8 @@
       border-color: #1d1d1c;
     }
 
+    /* PROJECT CARDS */
+
     .project-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -475,7 +500,6 @@
     }
 
     .project {
-      padding: 0;
       display: flex;
       flex-direction: column;
       background: #f1f0ea;
@@ -553,7 +577,7 @@
       display: none !important;
     }
 
-    /* Quant image placeholder */
+    /* QUANT PLACEHOLDER */
 
     .image-placeholder {
       height: 215px;
@@ -565,7 +589,6 @@
       justify-content: space-between;
       align-items: flex-start;
       padding: 22px;
-      overflow: hidden;
     }
 
     .image-number {
@@ -596,14 +619,11 @@
       align-items: center;
       justify-content: center;
       background: #082850;
-      overflow: hidden;
     }
 
     .akcse-logo-art img {
       max-width: 85%;
       max-height: 85%;
-      width: auto;
-      height: auto;
       object-fit: contain;
     }
 
@@ -611,7 +631,6 @@
       border-top: 1px solid #d8d5cd;
       margin: 22px 24px 0;
       padding: 19px 0 22px;
-      color: #34322f;
     }
 
     .akcse-subproject h4 {
@@ -642,7 +661,7 @@
       color: #77736d;
     }
 
-    /* Education */
+    /* EDUCATION */
 
     .edu-grid {
       display: grid;
@@ -682,7 +701,7 @@
       margin-bottom: 7px;
     }
 
-    /* Contact */
+    /* CONTACT */
 
     .contact-panel {
       display: grid;
@@ -712,11 +731,7 @@
       color: #77736c;
     }
 
-    .contact-details a:hover {
-      border-color: #6a6863;
-    }
-
-    /* Footer */
+    /* FOOTER */
 
     .footer {
       display: flex;
@@ -734,7 +749,7 @@
       transform: none;
     }
 
-    /* Responsive */
+    /* RESPONSIVE */
 
     @media (max-width: 1050px) {
       .project-grid {
@@ -800,16 +815,17 @@
         font-size: 15px;
       }
 
-      .hero-visual {
-        margin-top: 42px;
-        height: 255px;
-      }
-
       .section {
         padding-top: 58px;
       }
 
-      .panel {
+      #research {
+        margin-top: 75px;
+        padding-top: 65px;
+      }
+
+      .panel,
+      .research-card {
         padding: 22px;
       }
 
@@ -836,10 +852,6 @@
         grid-template-columns: 1fr;
       }
 
-      .grade-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .research-feature-image {
         aspect-ratio: 4 / 3;
       }
@@ -863,16 +875,17 @@
 
 <body>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <div class="nav-shell">
     <nav class="nav wrap" aria-label="Main navigation">
       <a class="logo" href="#home">Lucas<span>Yoon.</span></a>
 
-      <button class="hamburger"
-              id="menuToggle"
-              aria-label="Open menu"
-              aria-controls="navLinks"
-              aria-expanded="false">
+      <button
+        class="hamburger"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-controls="navLinks"
+        aria-expanded="false">
         ☰
       </button>
 
@@ -884,10 +897,8 @@
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
-        <a class="nav-resume"
-           href="resume.pdf"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a class="nav-resume" href="resume.pdf"
+           target="_blank" rel="noopener noreferrer">
           View Resume ↗
         </a>
       </div>
@@ -896,7 +907,7 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- HOME -->
     <section class="hero wrap" id="home">
       <div class="eyebrow">HELLO, I'M</div>
 
@@ -922,10 +933,8 @@
           Explore Projects ↗
         </a>
 
-        <a class="btn secondary"
-           href="resume.pdf"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a class="btn secondary" href="resume.pdf"
+           target="_blank" rel="noopener noreferrer">
           View Resume ↗
         </a>
 
@@ -979,10 +988,9 @@
           </p>
 
           <p>
-            I enjoy turning mathematical ideas into
-            systems that work in practice — from profiling
-            model pipelines to building tools for
-            financial research.
+            I enjoy turning mathematical ideas into systems
+            that work in practice, from profiling model
+            pipelines to building financial research tools.
           </p>
 
           <div class="chips">
@@ -1014,6 +1022,7 @@
 
     <!-- EXPERIENCE -->
     <section class="section wrap reveal" id="experience">
+
       <div class="section-label">02 / Experience</div>
       <h2 class="section-title">My Journey</h2>
 
@@ -1027,24 +1036,28 @@
         <!-- Yonsei -->
         <article class="timeline-item">
           <div class="panel">
-            <span class="date">JUN 2026 — AUG 2026 · SEOUL</span>
+
+            <span class="date">
+              JUN 2026 — AUG 2026 · SEOUL
+            </span>
 
             <h3>Undergraduate Research Intern</h3>
+
             <div class="org">
               Yonsei University · Machine Learning Lab
             </div>
 
             <p>
-              Co-authored KALBI, a Transformer-free foundation
-              model for sparse regression with up to 200K
-              features and CPU inference.
+              Co-authored KALBI, a Transformer-free
+              foundation model for sparse regression
+              with up to 200K features and CPU inference.
             </p>
 
             <p>
               Profiled synthetic pretraining generators,
               implemented configuration overrides yielding
-              a 1.75× speedup, and benchmarked against LASSO,
-              SCAD, and MCP across 41 real datasets.
+              a 1.75× speedup, and benchmarked against
+              LASSO, SCAD, and MCP across 41 datasets.
             </p>
 
             <div class="project-tools">
@@ -1053,12 +1066,14 @@
               <span class="tool">Sparse Regression</span>
               <span class="tool">Benchmarking</span>
             </div>
+
           </div>
         </article>
 
         <!-- CDQ -->
         <article class="timeline-item">
           <div class="panel">
+
             <span class="date">
               JUL 2025 — SEP 2025 · SOUTH KOREA
             </span>
@@ -1072,10 +1087,11 @@
             </p>
 
             <p>
-              Applied statistical process control and outlier
-              detection to distinguish genuine process changes
-              from data quality issues, helping identify
-              approximately 2% more defects per day.
+              Applied statistical process control and
+              outlier detection to distinguish real
+              process changes from data quality issues,
+              helping identify approximately 2% more
+              defects per day.
             </p>
 
             <div class="project-tools">
@@ -1084,34 +1100,37 @@
               <span class="tool">Pandas</span>
               <span class="tool">Statistical Process Control</span>
             </div>
+
           </div>
         </article>
 
         <!-- AKCSE -->
         <article class="timeline-item">
           <div class="panel">
+
             <span class="date">
               MAR 2026 — PRESENT · TORONTO
             </span>
 
             <h3>Vice President, Department of Research-Tech</h3>
+
             <div class="org">
               AKCSE · Association of Korean-Canadian
               Scientists and Engineers
             </div>
 
             <p>
-              Oversee the Research-Tech Department's monthly
-              research publication program, including topic
-              selection, editorial planning, content
-              coordination, and publication.
+              Oversee the Research-Tech Department's
+              monthly research publication program,
+              including topic selection, editorial
+              planning, content coordination,
+              and publication.
             </p>
 
             <p>
               Lead technical communication on AI,
-              machine learning, data science, and applied
-              mathematics for AKCSE's community of
-              over 10,000 students.
+              machine learning, data science,
+              and applied mathematics.
             </p>
 
             <div class="project-tools">
@@ -1120,12 +1139,14 @@
               <span class="tool">Technical Writing</span>
               <span class="tool">Editorial Coordination</span>
             </div>
+
           </div>
         </article>
 
         <!-- MILITARY -->
         <article class="timeline-item">
           <div class="panel">
+
             <span class="date">
               JAN 2024 — JUL 2025 · SOUTH KOREA
             </span>
@@ -1137,37 +1158,42 @@
             </div>
 
             <p>
-              Led a 30-person squad and helped train more than
-              1,000 recruits with zero safety incidents.
+              Led a 30-person squad and helped train
+              more than 1,000 recruits with zero
+              safety incidents.
             </p>
 
             <p>
-              Received five commendations, including three
-              Division Commander citations.
+              Received five commendations, including
+              three Division Commander citations.
             </p>
 
-            <!-- Baekdu Ironman Achievement -->
             <div class="military-achievement">
+
               <h4>
                 Baekdu Ironman — 21st Infantry Division
               </h4>
 
-              <span class="military-stat">Top 0.12%</span>
+              <span class="military-stat">
+                Top 0.12%
+              </span>
 
               <ul>
                 <li>
                   Earned the Baekdu Ironman distinction
                   through a rigorous physical fitness
-                  challenge, achieved by only 12 out of
-                  approximately 10,000 soldiers.
+                  challenge, achieved by only 12 out
+                  of approximately 10,000 soldiers.
                 </li>
 
                 <li>
-                  Received a Division Commander's Commendation
-                  in recognition of exceptional physical
-                  endurance, discipline, and perseverance.
+                  Received a Division Commander's
+                  Commendation for exceptional
+                  physical endurance, discipline,
+                  and perseverance.
                 </li>
               </ul>
+
             </div>
 
             <div class="project-tools">
@@ -1176,30 +1202,37 @@
               <span class="tool">Teamwork</span>
               <span class="tool">Physical Endurance</span>
             </div>
+
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- RESEARCH -->
+    <!-- END OF EXPERIENCE -->
+    <!-- RESEARCH STARTS AS A SEPARATE SECTION -->
+
     <section class="section wrap reveal" id="research">
-      <div class="section-label">03 / Research</div>
+
+      <div class="section-label">
+        03 / Research
+      </div>
 
       <h2 class="section-title">
         Curiosity meets mathematics.
       </h2>
 
       <p class="section-lead">
-        Building and evaluating efficient machine learning
-        methods through statistical reasoning.
+        Building and evaluating efficient machine
+        learning methods through statistical reasoning.
       </p>
 
-      <article class="panel">
+      <article class="research-card">
+
         <img
           class="research-feature-image"
           src="images/krylov-algorithm.png"
-          alt="Conceptual Krylov subspace and optimization illustration"
+          alt="Krylov subspace algorithm illustration"
           loading="lazy"
         >
 
@@ -1207,24 +1240,30 @@
           FEATURED RESEARCH · YONSEI UNIVERSITY
         </span>
 
-        <h3 style="font-size:clamp(21px,3vw,29px);line-height:1.4;margin:12px 0;">
+        <h3>
           KALBI — Krylov Adaptive Linear Basis
           In-context Learning for High-Dimensional
           Linear Regression Foundation Model
         </h3>
 
         <p>
-          Worked on a Transformer-free approach to
-          high-dimensional regression, including sparse
-          and dense synthetic tasks.
+          Worked on a Transformer-free approach
+          to high-dimensional regression,
+          including sparse and dense synthetic tasks.
         </p>
 
         <p>
           Identified costly feature-screening and
-          unintended fallback-noise behavior, improved
-          generator throughput, extended data generation
-          with a parallel Bayesian neural network branch,
-          and evaluated generalization on real datasets.
+          unintended fallback-noise behavior,
+          improved generator throughput,
+          and extended data generation with a
+          parallel Bayesian neural network branch.
+        </p>
+
+        <p>
+          Evaluated generalization against
+          conventional penalized regression methods
+          across 41 real-world datasets.
         </p>
 
         <div class="chips">
@@ -1236,64 +1275,74 @@
         </div>
 
         <p style="font-size:12px;color:#999;margin-top:18px;">
-          Manuscript in preparation · Advisor: Prof. Minseok Shin
+          Manuscript in preparation ·
+          Advisor: Prof. Minseok Shin
         </p>
+
       </article>
+
     </section>
 
     <!-- PROJECTS -->
     <section class="section wrap reveal" id="projects">
-      <div class="section-label">04 / Projects</div>
+
+      <div class="section-label">
+        04 / Projects
+      </div>
 
       <h2 class="section-title">
         Featured Projects
       </h2>
 
       <p class="section-lead">
-        Selected research, computer vision, quantitative
-        analytics, statistical modeling, and technical publishing.
+        Selected research, computer vision,
+        quantitative analytics, statistical modeling,
+        and technical publishing.
       </p>
 
       <div class="project-filters" aria-label="Filter projects">
-        <button class="filter"
-                data-filter="all"
+
+        <button class="filter" data-filter="all"
                 aria-pressed="true">
           All Projects
         </button>
 
-        <button class="filter"
-                data-filter="ml"
+        <button class="filter" data-filter="ml"
                 aria-pressed="false">
           Research &amp; AI
         </button>
 
-        <button class="filter"
-                data-filter="finance"
+        <button class="filter" data-filter="finance"
                 aria-pressed="false">
           Quant Finance
         </button>
 
-        <button class="filter"
-                data-filter="software"
+        <button class="filter" data-filter="software"
                 aria-pressed="false">
           Software Engineering
         </button>
+
       </div>
 
       <div class="project-grid">
 
         <!-- KALBI -->
         <article class="project" data-category="ml">
+
           <img
             class="project-image"
             src="images/krylov-algorithm.png"
-            alt="Krylov subspace algorithm illustration"
+            alt="Krylov subspace algorithm"
             loading="lazy"
           >
 
-          <span class="kind">Machine Learning / Research</span>
+          <span class="kind">
+            Machine Learning / Research
+          </span>
 
-          <h3>KALBI — High-Dimensional Regression</h3>
+          <h3>
+            KALBI — High-Dimensional Regression
+          </h3>
 
           <p class="project-summary">
             Transformer-free foundation-model research
@@ -1302,13 +1351,13 @@
 
           <ul class="project-bullets">
             <li>
-              Studied sparse regression with up to
-              200,000 features and CPU-based inference.
+              Studied sparse regression problems
+              with up to 200,000 features.
             </li>
 
             <li>
-              Optimized synthetic data generation
-              by 1.75× (228s to 130s).
+              Improved synthetic data generation
+              speed by 1.75×.
             </li>
 
             <li>
@@ -1328,12 +1377,16 @@
           </div>
 
           <div class="project-links">
-            <a href="#research">Read research overview ↗</a>
+            <a href="#research">
+              Read Research Overview ↗
+            </a>
           </div>
+
         </article>
 
         <!-- PUPPY VS MUFFIN -->
         <article class="project" data-category="ml software">
+
           <img
             class="project-image"
             src="images/puppy-muffin.png"
@@ -1345,12 +1398,14 @@
             Computer Vision / Machine Learning
           </span>
 
-          <h3>Puppy vs. Muffin Image Classification</h3>
+          <h3>
+            Puppy vs. Muffin Image Classification
+          </h3>
 
           <p class="project-summary">
             A CSCC11 machine learning assignment
-            exploring visual representations for
-            distinguishing puppies from muffins.
+            investigating visual representations
+            for distinguishing puppies from muffins.
           </p>
 
           <ul class="project-bullets">
@@ -1376,11 +1431,14 @@
             <span class="tool">HOG</span>
             <span class="tool">CLIP</span>
           </div>
+
         </article>
 
         <!-- QUANT TERMINAL -->
         <article class="project" data-category="finance software">
+
           <div class="image-placeholder">
+
             <div class="image-number">
               03 / QUANTITATIVE FINANCE
             </div>
@@ -1392,24 +1450,27 @@
             <small>
               ADD IMAGE · images/quant-terminal.jpg
             </small>
+
           </div>
 
           <span class="kind">
             Quantitative Finance / Software Engineering
           </span>
 
-          <h3>Quantitative Finance Terminal</h3>
+          <h3>
+            Quantitative Finance Terminal
+          </h3>
 
           <p class="project-summary">
-            An interactive Python and Streamlit dashboard
-            for studying market behavior and trading strategies.
+            Interactive Python and Streamlit dashboard
+            for studying market behavior
+            and trading strategies.
           </p>
 
           <ul class="project-bullets">
             <li>
               Visualizes stock performance,
-              return correlations,
-              and portfolio analytics.
+              correlations, and portfolio analytics.
             </li>
 
             <li>
@@ -1419,7 +1480,9 @@
             </li>
           </ul>
 
-          <div class="org">Independent Project</div>
+          <div class="org">
+            Independent Project
+          </div>
 
           <div class="project-tools">
             <span class="tool">Python</span>
@@ -1427,10 +1490,12 @@
             <span class="tool">Pandas</span>
             <span class="tool">Backtesting</span>
           </div>
+
         </article>
 
         <!-- DIABETES -->
         <article class="project" data-category="ml">
+
           <img
             class="project-image"
             src="images/diabetes-risk.png"
@@ -1442,19 +1507,22 @@
             Statistics / Predictive Modeling
           </span>
 
-          <h3>Diabetes Risk Prediction</h3>
+          <h3>
+            Diabetes Risk Prediction
+          </h3>
 
           <p class="project-summary">
             <strong>
-              STAC67 In-Class Project — 1st Place Overall
+              STAC67 In-Class Project —
+              1st Place Overall
             </strong>
           </p>
 
           <ul class="project-bullets">
             <li>
               Analyzed more than 100,000 records
-              through feature engineering and
-              cross-validated LASSO.
+              using feature engineering
+              and cross-validated LASSO.
             </li>
 
             <li>
@@ -1463,8 +1531,8 @@
             </li>
 
             <li>
-              Assessed residuals and multicollinearity
-              using regression diagnostics and GVIF.
+              Performed residual analysis and
+              multicollinearity diagnostics using GVIF.
             </li>
           </ul>
 
@@ -1487,10 +1555,12 @@
               View Code ↗
             </a>
           </div>
+
         </article>
 
         <!-- AKCSE -->
         <article class="project" data-category="ml">
+
           <div class="akcse-logo-art">
             <img
               src="images/akcse-logo.png"
@@ -1503,10 +1573,13 @@
             Research Leadership / Technical Communication
           </span>
 
-          <h3>AKCSE Monthly Research Publications</h3>
+          <h3>
+            AKCSE Monthly Research Publications
+          </h3>
 
           <p class="project-summary">
-            Research-Tech leadership and technical communication.
+            Research-Tech leadership and
+            technical communication.
           </p>
 
           <ul class="project-bullets">
@@ -1516,9 +1589,8 @@
             </li>
 
             <li>
-              Oversee planning, coordination,
-              and publication of monthly research
-              and technology posts.
+              Oversee monthly research publication
+              planning and coordination.
             </li>
 
             <li>
@@ -1540,27 +1612,28 @@
           </div>
 
           <div class="project-links">
-            <a
-              href="https://akcseuoft.ca"
-              target="_blank"
-              rel="noopener noreferrer">
+            <a href="https://akcseuoft.ca"
+               target="_blank"
+               rel="noopener noreferrer">
               AKCSE Website ↗
             </a>
           </div>
 
-          <!-- IEEE CONVERTER SUBPROJECT -->
+          <!-- IEEE CONVERTER -->
           <div class="akcse-subproject">
+
             <div class="subproject-overline">
               AKCSE / RELATED SOFTWARE TOOL
             </div>
 
-            <h4>IEEE Reference Converter</h4>
+            <h4>
+              IEEE Reference Converter
+            </h4>
 
             <p>
               Converts website URLs into IEEE-style
-              citations to make technical research
-              writing and monthly publication
-              preparation easier.
+              references to streamline technical
+              research writing.
             </p>
 
             <ul>
@@ -1568,9 +1641,10 @@
                 Automates reference formatting
                 from website links.
               </li>
+
               <li>
-                Supports a consistent
-                technical writing workflow.
+                Supports consistent citation formatting
+                in technical publications.
               </li>
             </ul>
 
@@ -1580,20 +1654,17 @@
               rel="noopener noreferrer">
               View IEEE Converter Code ↗
             </a>
+
           </div>
+
         </article>
 
       </div>
-
-      <p style="font-size:11px;color:#87847c;margin-top:15px;">
-        KALBI artwork is a conceptual illustration.
-        Quant Terminal image can be added later.
-        IEEE Converter is included under AKCSE.
-      </p>
     </section>
 
     <!-- EDUCATION -->
     <section class="section wrap reveal" id="education">
+
       <div class="section-label">
         05 / Education &amp; Skills
       </div>
@@ -1603,12 +1674,14 @@
       </h2>
 
       <div class="edu-grid">
+
         <div class="panel">
+
           <span class="eyebrow">
             UNIVERSITY OF TORONTO
           </span>
 
-          <h3 style="font-size:23px;margin:10px 0;">
+          <h3>
             Honours Bachelor of Science
           </h3>
 
@@ -1618,11 +1691,12 @@
             Expected Graduation · April 2028
           </p>
 
-          <h3 style="margin-top:22px;font-size:16px;">
+          <h3 style="margin-top:22px;">
             Selected Academic Results
           </h3>
 
           <div class="grade-grid">
+
             <div class="grade">
               <strong>98 · A+</strong>
               <small>Introduction to Analysis</small>
@@ -1642,10 +1716,12 @@
               <strong>91 · A+</strong>
               <small>Differential Equations I</small>
             </div>
+
           </div>
         </div>
 
         <div class="panel">
+
           <div class="skill-block">
             <h3>Languages &amp; Frameworks</h3>
 
@@ -1660,7 +1736,7 @@
           </div>
 
           <div class="skill-block">
-            <h3>ML &amp; Data Science</h3>
+            <h3>Machine Learning &amp; Data Science</h3>
 
             <div class="chips">
               <span class="chip">PyTorch</span>
@@ -1684,12 +1760,14 @@
               <span class="chip">Optimization</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="section wrap reveal" id="contact">
+
       <div class="section-label">
         06 / Contact
       </div>
@@ -1699,29 +1777,29 @@
       </h2>
 
       <p class="section-lead">
-        Interested in research, engineering, finance,
-        or collaborating on an interesting problem?
+        Interested in machine learning research,
+        software engineering, or quantitative finance?
         I'd love to hear from you.
       </p>
 
       <div class="panel contact-panel">
+
         <div>
-          <h3 style="font-size:26px;margin:0 0 12px;">
-            Get in touch
-          </h3>
+
+          <h3>Get in touch</h3>
 
           <p>
-            I am interested in opportunities to build,
-            learn, and work with people who enjoy
-            solving challenging problems.
+            I'm interested in opportunities to build,
+            learn, and collaborate with people
+            who enjoy solving challenging problems.
           </p>
 
           <div class="actions">
-            <a
-              href="resume.pdf"
-              class="btn primary"
-              target="_blank"
-              rel="noopener noreferrer">
+
+            <a href="resume.pdf"
+               class="btn primary"
+               target="_blank"
+               rel="noopener noreferrer">
               View Resume ↗
             </a>
 
@@ -1732,10 +1810,12 @@
               rel="noopener noreferrer">
               GitHub ↗
             </a>
+
           </div>
         </div>
 
         <div class="contact-details">
+
           <a href="mailto:junseo.yoon@mail.utoronto.ca">
             <span>Email</span>
             junseo.yoon@mail.utoronto.ca
@@ -1753,7 +1833,9 @@
             <span>GitHub</span>
             github.com/LucasYoon22
           </a>
+
         </div>
+
       </div>
     </section>
 
@@ -1761,6 +1843,7 @@
 
   <!-- FOOTER -->
   <footer class="wrap footer">
+
     <span>
       © <span id="year"></span> Lucas Yoon.
       All rights reserved.
@@ -1769,6 +1852,7 @@
     <span>
       Built with curiosity, code, and mathematics.
     </span>
+
   </footer>
 
   <!-- JAVASCRIPT -->
@@ -1776,7 +1860,6 @@
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    // Mobile navigation
     const toggle = document.getElementById("menuToggle");
     const nav = document.getElementById("navLinks");
 
@@ -1784,10 +1867,12 @@
       const open = nav.classList.toggle("open");
 
       toggle.setAttribute("aria-expanded", String(open));
+
       toggle.setAttribute(
         "aria-label",
         open ? "Close menu" : "Open menu"
       );
+
       toggle.textContent = open ? "✕" : "☰";
     });
 
@@ -1799,7 +1884,6 @@
       });
     });
 
-    // Project filters
     document.querySelectorAll(".filter").forEach(button => {
       button.addEventListener("click", () => {
         const selected = button.dataset.filter;
